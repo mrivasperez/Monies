@@ -9,12 +9,12 @@
 <body>
     <!-- Currency Icon created by Viral faisalovers from Noun Project -->
     <img src="assets/currency.svg" alt="" class="money-img">
-    <script src="assets/script.js"></script>
     <h1>Monies</h1>
     <p>Choose the currency and the amounts to get the exchange rate.</p>
     <div class="container">
-        <div class="currency">
-            <select id="currency-one">
+        <div class="container">
+            <div class="currency">
+              <select id="currency-one">
                 <option value="AED">AED</option>
                 <option value="ARS">ARS</option>
                 <option value="AUD">AUD</option>
@@ -63,14 +63,14 @@
                 <option value="TRY">TRY</option>
                 <option value="TWD">TWD</option>
                 <option value="UAH">UAH</option>
-                <!-- USD selected by default -->
                 <option value="USD" selected>USD</option>
                 <option value="UYU">UYU</option>
                 <option value="VND">VND</option>
                 <option value="ZAR">ZAR</option>
-            </select>
-            <input type="number" id="amount-one" placeholder="0" value="1">
-        </div>
+              </select>
+              <input type="number" id="amount-one" placeholder="0" value="1" />
+            </div>      
+            <div class="rate" id="rate"></div>
         <div class="currency">
             <select id="currency-two">
                 <option value="AED">AED</option>
@@ -130,12 +130,14 @@
             <input type="number" id="amount-two" placeholder="0">
         </div>
         <div class="swap-rate-container">
-            <button class="btn" id="swap">Swap</button> <button class="btn" id="codes">Hide Codes Table</button>
+            <button class="btn" id="swap">Swap</button> <button class="btn" id="codes">Currency Codes</button>
             <div class="rate" id="rate"></div>
         </div>
-        <!-- <div id="code-table">
-            hey
-        </div> -->
+        <div id="code-table" class="hidden">
+            <!-- Table from https://www.exchangerate-api.com/docs/supported-currencies -->
+            <table><tr><th align="left"><strong>Currency Code</strong></th><th align="left"><strong>Currency Name</strong></th><th align="left"><strong>Country</strong></th></tr><tr><td align="left">AED</td><td align="left">UAE Dirham</td><td align="left">United Arab Emirates</td></tr><tr><td align="left">ARS</td><td align="left">Argentine Peso</td><td align="left">Argentina</td></tr><tr><td align="left">AUD</td><td align="left">Australian Dollar</td><td align="left">Australia</td></tr><tr><td align="left">BGN</td><td align="left">Bulgarian Lev</td><td align="left">Bulgaria</td></tr><tr><td align="left">BRL</td><td align="left">Brazilian Real</td><td align="left">Brazil</td></tr><tr><td align="left">BSD</td><td align="left">Bahamian Dollar</td><td align="left">Bahamas</td></tr><tr><td align="left">CAD</td><td align="left">Canadian Dollar</td><td align="left">Canada</td></tr><tr><td align="left">CHF</td><td align="left">Swiss Franc</td><td align="left">Switzerland</td></tr><tr><td align="left">CLP</td><td align="left">Chilean Peso</td><td align="left">Chile</td></tr><tr><td align="left">CNY</td><td align="left">Chinese Renminbi</td><td align="left">China</td></tr><tr><td align="left">COP</td><td align="left">Colombian Peso</td><td align="left">Colombia</td></tr><tr><td align="left">CZK</td><td align="left">Czech Koruna</td><td align="left">Czech Republic</td></tr><tr><td align="left">DKK</td><td align="left">Danish Krone</td><td align="left">Denmark</td></tr><tr><td align="left">DOP</td><td align="left">Dominican Peso</td><td align="left">Dominican Republic</td></tr><tr><td align="left">EGP</td><td align="left">Egyptian Pound</td><td align="left">Egypt</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Germany</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Austria</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Belgium</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Cyprus</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Estonia</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Finland</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">France</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Greece</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Ireland</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Italy</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Latvia</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Lithuania</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Luxembourg</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Malta</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Netherlands</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Portugal</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Slovakia</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Slovenia</td></tr><tr><td align="left">EUR</td><td align="left">Euro</td><td align="left">Spain</td></tr><tr><td align="left">FJD</td><td align="left">Fiji Dollar</td><td align="left">Fiji</td></tr><tr><td align="left">GBP</td><td align="left">Pound Sterling</td><td align="left">United Kingdom</td></tr><tr><td align="left">GTQ</td><td align="left">Guatemalan Quetzal</td><td align="left">Guatemala</td></tr><tr><td align="left">HKD</td><td align="left">Hong Kong Dollar</td><td align="left">Hong Kong</td></tr><tr><td align="left">HRK</td><td align="left">Croatian Kuna</td><td align="left">Croatian</td></tr><tr><td align="left">HUF</td><td align="left">Hungarian Forint</td><td align="left">Hungary</td></tr><tr><td align="left">IDR</td><td align="left">Indonesian Rupiah</td><td align="left">Indonesia</td></tr><tr><td align="left">ILS</td><td align="left">Israeli Shekel</td><td align="left">Israel</td></tr><tr><td align="left">INR</td><td align="left">Indian Rupee</td><td align="left">India</td></tr><tr><td align="left">ISK</td><td align="left">Icelandic Krona</td><td align="left">Iceland</td></tr><tr><td align="left">JPY</td><td align="left">Japanese Yen</td><td align="left">Japan</td></tr><tr><td align="left">KRW</td><td align="left">South Korean Won</td><td align="left">Korea</td></tr><tr><td align="left">KZT</td><td align="left">Kazakhstani Tenge</td><td align="left">Kazakhstan</td></tr><tr><td align="left">MXN</td><td align="left">Mexican Peso</td><td align="left">Mexico</td></tr><tr><td align="left">MYR</td><td align="left">Malaysian Ringgit</td><td align="left">Malaysia</td></tr><tr><td align="left">NOK</td><td align="left">Norwegian Krone</td><td align="left">Norway</td></tr><tr><td align="left">NZD</td><td align="left">New Zealand Dollar</td><td align="left">New Zealand</td></tr><tr><td align="left">PAB</td><td align="left">Panamanian Balboa</td><td align="left">Panama</td></tr><tr><td align="left">PEN</td><td align="left">Peruvian Nuevo Sol</td><td align="left">Peru</td></tr><tr><td align="left">PHP</td><td align="left">Philippine Peso</td><td align="left">Philippines</td></tr><tr><td align="left">PKR</td><td align="left">Pakistani Rupee</td><td align="left">Pakistan</td></tr><tr><td align="left">PLN</td><td align="left">Polish Zloty</td><td align="left">Poland</td></tr><tr><td align="left">PYG</td><td align="left">Paraguayan Guarani</td><td align="left">Paraguay</td></tr><tr><td align="left">RON</td><td align="left">Romanian Leu</td><td align="left">Romania</td></tr><tr><td align="left">RUB</td><td align="left">Russian Ruble</td><td align="left">Russian Federation</td></tr><tr><td align="left">SAR</td><td align="left">Saudi Riyal</td><td align="left">Saudi Arabia</td></tr><tr><td align="left">SEK</td><td align="left">Swedish Krona</td><td align="left">Sweden</td></tr><tr><td align="left">SGD</td><td align="left">Singapore Dollar</td><td align="left">Singapore</td></tr><tr><td align="left">THB</td><td align="left">Thai Baht</td><td align="left">Thailand</td></tr><tr><td align="left">TRY</td><td align="left">Turkish Lira</td><td align="left">Turkey</td></tr><tr><td align="left">TWD</td><td align="left">New Taiwan Dollar</td><td align="left">Taiwan</td></tr><tr><td align="left">UAH</td><td align="left">Ukrainian Hryvnia</td><td align="left">Ukraine</td></tr><tr><td align="left">USD</td><td align="left">US Dollar</td><td align="left">United States</td></tr><tr><td align="left">UYU</td><td align="left">Uruguayan Peso</td><td align="left">Uruguay</td></tr><tr><td align="left">ZAR</td><td align="left">South African Rand</td><td align="left">South Africa</td></tr></table>
+        </div>
     </div>
+    <script src="assets/script.js"></script>
 </body>
 </html>
