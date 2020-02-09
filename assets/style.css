@@ -3,13 +3,13 @@
 }
 
 .money-img {
-    width: 200px;
+    width: 275px;
     margin: 0;
 }
 
 * {
     box-sizing: border-box;
-    margin: 5px;
+    margin: 10px;
 }
 
 body{
@@ -44,7 +44,6 @@ p {
 }
 
 .currency {
-    padding: 15px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,4 +90,8 @@ select:focus, input:focus, button:focus {
     .currency input {
         width: 200px;
     }
+}
+
+.hidden {
+    display: none;
 }
