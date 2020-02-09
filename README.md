@@ -1,5 +1,5 @@
 # Monies - ![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)
-An exchange rate calculator by mrivasperez.
+An exchange rate calculator by mrivasperez. Not for mobile.
 Live demo: <https://mrivasperez.github.io/Monies/>
 
 ## Screenshot
